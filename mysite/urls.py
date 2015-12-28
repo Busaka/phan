@@ -1,3 +1,4 @@
+
 """phan URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,21 +15,9 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf import settings
-from django.conf.urls.static import static
-from django.conf.urls import url, include
-from django.contrib import admin
-from phan import views
-
+from django.conf.urls import url
+from mysite import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^admin/', admin.site.urls),
-    url(r'^about$', views.about, name='about'),
-    url(r'^contact$', views.contact, name='contact'),
-    url(r'^jobs/', include('jobs.urls', namespace='jobs')),
+    url(r'^$', views.home, name='mysite_home'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

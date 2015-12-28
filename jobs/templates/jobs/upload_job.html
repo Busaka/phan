@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="well">
+    <form action="" method="post">{% csrf_token %}
+        <p>{{ jform.as_p }}</p>
+        
+<p><button class="btn btn-primary" type="submit" role="button">Submit</button></p>
+    </form>
+</div>
+</div>
+
+{% endblock %}

@@ -27,10 +27,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lxbusaka07@gmail.com'
+EMAIL_HOST_PASSWORD = 'majestic12jeff'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mysite.apps.MysiteConfig',
+    'jobs.apps.JobsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,10 +59,11 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'phan.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +127,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'static_root')
+STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static', 'project_static'),
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media_root') 
